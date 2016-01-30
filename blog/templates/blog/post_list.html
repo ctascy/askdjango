@@ -1,0 +1,11 @@
+
+<ul>
+
+{%for post in post_list%}
+  <li>
+    <a href="{%url "blog.views.post_detail" post.pk %}">
+      {{ post.title }}
+    </a>
+  </li>
+  {% endfor %}
+</ul>

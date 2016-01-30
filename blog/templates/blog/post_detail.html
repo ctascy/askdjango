@@ -1,0 +1,16 @@
+<h1>
+{{post.title}}</h1>
+{{post.content|linebreaks}}
+</hr>
+<a href="{%url "blog.views.comment_new" post.pk %}">댓글달기</a>
+<ul>
+{% for comment in post.comment_set.all %}
+<li>{{comment.message}}
+{% if comment.image %}
+{# comment.image.path 로컬파일 경로#}
+<img src="{{comment.image.url}}" />
+{%endif%}</li>
+{%empty%}
+<li>등록된 댓글이 없습니다.</li>
+{%endfor%}
+</ul>
